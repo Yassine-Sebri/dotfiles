@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Start a tmux session
+if ! tmux has-session -t "default" 2>/dev/null; then
+    tmux new-session -s "default" >/dev/null 2>&1
+fi
+
+tmux a -t "default"
