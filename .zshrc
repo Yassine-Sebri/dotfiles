@@ -104,12 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gu="gitui"
+alias gu="gitui -t mocha.ron"
 alias ls="lsd"
 alias vim="nvim"
+alias ansible-lint="ansible-lint -c ~/.ansible-lint.yml"
 
-bindkey -s ^f "fzf --print0 | xargs -0 -o nvim\n"
 bindkey -s ^t "mux\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 # Go
 export GOROOT=/usr/local/go

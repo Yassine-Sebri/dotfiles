@@ -30,8 +30,33 @@ lspconfig.yamlls.setup {
   capabilities = capabilities,
 }
 
+lspconfig.ansiblels.setup{
+  settings = {
+    ansible = {
+      ansible = {
+        path = "ansible"
+      },
+      executionEnvironment = {
+        enabled = false
+      },
+      python = {
+        interpreterPath = "python"
+      },
+      validation = {
+        enabled = false,
+        lint = {
+          enabled = true,
+          path = "ansible-lint -c ~/.ansible-lint.yml"
+        }
+      }
+    }
+  }
+}
+
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
 }
+
+lspconfig.helm_ls.setup{}

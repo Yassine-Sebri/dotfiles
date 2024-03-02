@@ -2,11 +2,38 @@ local M = {}
 
 M.general = {
   n = {
-    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
-    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
-    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
-    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+    ["<A-j>"]      = { "<cmd>set paste<CR>m`o<Esc>``<cmd>set nopaste<CR>", "Insert new line below" },
+    ["<A-k>"]      = { "<cmd>set paste<CR>m`O<Esc>``<cmd>set nopaste<CR>", "Insert new line above" },
+    ["<leader>v"]  = { "<cmd>vnew<CR>", "Split window vertically" },
+    ["<leader>cw"] = { "<cmd>lua require('nvchad.tabufline').close_buffer()<CR><cmd>close<CR>", "Close current window" },
+    ["<C-f>"]      = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Close current window" },
+    ["E"]          = { "<cmd>lua vim.diagnostic.open_float(nil, {focus=false, scope='cursor'})<CR>", "Floating diagnostic window" },
+  },
+  i = {
+    ["jj"] = { "<Esc>", "Switch to normal mode" }
   }
+}
+
+M.telescope = {
+  plugin = true,
+
+  n = {
+    -- git
+    ["<leader>gs"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
+  },
+}
+
+M.gitsigns = {
+  plugin = true,
+
+  n = {
+    ["<leader>gb"] = {
+      function()
+        package.loaded.gitsigns.toggle_current_line_blame()
+      end,
+      "Toggle current blame line",
+    },
+  },
 }
 
 M.gopher = {

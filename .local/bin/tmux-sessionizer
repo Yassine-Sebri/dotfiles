@@ -3,7 +3,14 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Mantu/ ~/personal/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$( (find ~/Mantu/Ansible/ \
+          ~/Mantu/ITOps/ \
+          ~/Mantu/Network/ \
+          ~/Mantu/Terraform/ \
+          ~/Mantu/Infrastructure/ \
+          ~/personal/ \
+          -mindepth 1 -maxdepth 1 -type d ; \
+     echo ~/.config/nvim) | fzf )
 fi
 
 if [[ -z $selected ]]; then

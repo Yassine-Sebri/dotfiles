@@ -113,9 +113,3 @@ local new_cmd = vim.api.nvim_create_user_command
 new_cmd("NvChadUpdate", function()
   require "nvchad.updater"()
 end, {})
--------------------------------------- mappings ------------------------------------------
-local keymap = vim.api.nvim_set_keymap
-
-keymap('i', 'jj', '<Esc>', {})
-vim.keymap.set('n', '<A-j>', ':set paste<CR>m`o<Esc>``:set nopaste<CR>')
-vim.keymap.set('n', '<A-k>', ':set paste<CR>m`O<Esc>``:set nopaste<CR>')

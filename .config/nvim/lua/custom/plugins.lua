@@ -1,21 +1,5 @@
 local plugins = {
   {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "gopls",
-        "pyright",
-        "terraformls",
-        "yamlls",
-        "tflint",
-      },
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -23,11 +7,49 @@ local plugins = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "ansible-language-server",
+        "gopls",
+        "helm-ls",
+        "prettierd",
+        "pyright",
+        "terraform-ls",
+        "tflint",
+        "yaml-language-server",
+      }
+    }
+  },
+  {
+    "NvChad/nvterm",
+    config = function ()
+      require("nvterm").setup({
+        terminals = {
+          type_opts = {
+            float = {
+              relative = 'editor',
+              row = 0.2,
+              col = 0.15,
+              width = 0.7,
+              height = 0.6,
+              border = "single",
+            },
+          }
+        },
+      })
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    ft = { "go", "markdown", "yaml.ansible" },
     opts = function()
       return require "custom.configs.null-ls"
     end,
+  },
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
   },
   {
     "olexsmir/gopher.nvim",
@@ -39,6 +61,10 @@ local plugins = {
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
     end,
+  },
+  {
+    "towolf/vim-helm",
+    ft = "helm",
   },
   {
     "NvChad/nvim-colorizer.lua",
@@ -64,7 +90,7 @@ local plugins = {
   },
   {
     "tpope/vim-obsession",
-    lazy = false,
+    event = "VeryLazy",
   },
 }
 return plugins
