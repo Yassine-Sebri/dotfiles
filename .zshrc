@@ -109,7 +109,6 @@ alias ls="lsd"
 alias vim="nvim"
 alias ansible-lint="ansible-lint -c ~/.ansible-lint.yml"
 
-bindkey -s ^t "mux\n"
 bindkey -s ^f "tmux-sessionizer\n"
 
 # Go
@@ -124,6 +123,9 @@ mkdir -pm o=,ug=rwx "$DOCKER_LOG_DIR"
 /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_LOG_DIR/dockerd.log 2>&1"
 eval `ssh-agent -s` >/dev/null 2>&1
 ssh-add >/dev/null 2>&1
+
+# Ansible 
+export ANSIBLE_FORCE_COLOR=True
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
