@@ -7,6 +7,7 @@ local opts = {
   formatters_by_ft = {
     lua = { 'stylua' },
     markdown = { 'prettierd' },
+    go = { 'gofumpt' },
   },
 }
 

@@ -56,7 +56,7 @@ return {
 
   {
     'stevearc/conform.nvim',
-    ft = { 'lua', 'markdown' },
+    ft = { 'lua', 'markdown', 'go' },
     opts = function()
       return require 'plugins.config.conform'
     end,

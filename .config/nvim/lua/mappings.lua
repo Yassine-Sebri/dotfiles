@@ -1,9 +1,12 @@
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move [U]p half a page' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move [D]own half a page' })
 vim.keymap.set('n', '<A-j>', '<cmd>set paste<CR>m`o<Esc>``<cmd>set nopaste<CR>', { desc = 'Insert line below' })
 vim.keymap.set('n', '<A-k>', '<cmd>set paste<CR>m`O<Esc>``<cmd>set nopaste<CR>', { desc = 'Insert line above' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+
+vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })

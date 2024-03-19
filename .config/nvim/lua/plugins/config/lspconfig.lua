@@ -54,7 +54,10 @@ local servers = {
     settings = {
       ansible = {
         validation = {
-          enabled = false,
+          enabled = true,
+          lint = {
+            enabled = false,
+          },
         },
       },
     },
