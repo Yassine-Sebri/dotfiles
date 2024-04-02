@@ -10,7 +10,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       markdown = { 'prettierd' },
-      go = { 'gofumpt' },
+      go = { 'gofumpt', 'goimports-reviser' },
     },
   },
 }

@@ -10,14 +10,19 @@ vim.opt.mouse = 'a'
 
 vim.opt.showmode = false
 
-if vim.fn.has 'wsl' == 1 then
-  vim.api.nvim_create_autocmd('TextYankPost', {
-    group = vim.api.nvim_create_augroup('Yank', { clear = true }),
-    callback = function()
-      vim.fn.system('/mnt/c/Windows/System32/clip.exe', vim.fn.getreg '"')
-    end,
-  })
-end
+vim.opt.clipboard = 'unnamedplus'
+vim.g.clipboard = {
+  name = 'win32yank',
+  copy = {
+    ['+'] = 'win32yank.exe -i --crlf',
+    ['*'] = 'win32yank.exe -i --crlf',
+  },
+  paste = {
+    ['+'] = 'win32yank.exe -o --lf',
+    ['*'] = 'win32yank.exe -o --lf',
+  },
+  cache_enabled = 0,
+}
 
 vim.opt.breakindent = true
 
